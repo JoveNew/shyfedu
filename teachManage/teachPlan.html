@@ -1,0 +1,192 @@
+<style type="text/css">
+    .form-inline input {
+        width: 100px;
+        border-top-style: none;
+        border-right-style: none;
+        border-left-style: none;
+        border-bottom-style: solid;
+        text-align: center
+    }
+    table input {
+        width: 100%;
+        border: 0px;
+        text-align:center
+    }
+    table textarea {
+        height: 100%;
+        width: 100%;
+        border-style: none;
+        resize:none
+    }
+</style>
+<style type="text/css" media="print">
+    .noprint{
+        display:none
+    }
+</style>
+
+<div id="head" style="text-align:center">
+    <h4 id="title"></h4>
+</div>
+<div style="margin-bottom: 10px;">
+    <div class="form-inline" style="text-align: center">
+        <input name="submitData" id="year_name" style="margin-right:10px;border:0;width:120px" />
+        <label for="account_name">授课人：</label>
+        <input name="submitData" id="account_name" style="margin-right:10px;"/>
+        <label for="subject_name">课程名称：</label>
+        <input name="submitData" id="subject_name" style="margin-right:10px;"/>
+        <label for="class_name">授课班级：</label>
+        <input name="submitData" id="class_name" style=";width:180px"/>
+    </div>
+</div>
+
+<div id="table">
+    <table border="1" style="width:100%;text-align:center;table-layout:fixed">
+        <tbody>
+            <tr>
+                <td style="width:20%">课程名称</td>
+                <td style="width:40%">
+                    <input name="submitData" id="row1_1"  />
+                </td>
+                <td style="width:20%">课程周课时数</td>
+                <td style="width:20%">
+                    <input name="submitData" id="row1_2"  />
+                </td>
+            </tr>
+            <tr>
+                <td><span style="color:red">*</span>教材名称及编写单位或作者</td>
+                <td>
+                    <input name="submitData" id="row2_1"  />
+                </td>
+                <td>本学期总课时数</td>
+                <td>
+                    <input name="submitData" id="row2_2"  />
+                </td>
+            </tr>
+            <tr>
+                <td>课程目标</td>
+                <td colspan="3">
+                    <textarea name="submitData" rows="4" id="row3" ></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>课时分配表</td>
+                <td>
+                    <table frame="void" style="height:100%;width:100%" border="1">
+                        <tbody>
+                            <tr>
+                                <td rowspan="3">
+                                    <input name="submitData" id="row4_blank1" />
+                                </td>
+                                <td colspan="6">按教学计划规定</td>
+                                <td colspan="6">本学期计划课时分配</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">本<br>学<br>期<br>总<br>时<br>数<br><span style="color:red">*</span></td>
+                                <td rowspan="2">已<br>完<br>成<br>实<br>数<br><span style="color:red">*</span></td>
+                                <td rowspan="2">尚<br>需<br>完<br>成<br>实<br>数<br><span style="color:red">*</span></td>
+                                <td colspan="3" style="height:23px">本学期内</td>
+                                <td rowspan="2">总<br>时<br>数</td>
+                                <td rowspan="2">讲<br>授<br>课<br><span style="color:red">*</span></td>
+                                <td rowspan="2">实<br>验<br><span style="color:red">*</span></td>
+                                <td rowspan="2">复<br>习<br><span style="color:red">*</span></td>
+                                <td rowspan="2">测<br>验</td>
+                                <td rowspan="2">机<br>动<br><span style="color:red">*</span></td>
+                            </tr>
+                            <tr>
+                                <td style="height:138px">规<br>定<br>实<br>数</td>
+                                <td>教<br>学<br>周<br>数</td>
+                                <td>周<br>课<br>时<br>数</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input name="submitData" id="row4_blank2"  />
+                                </td>
+                                <td>
+                                    <input name="submitData" id="row4_1"  />
+                                </td>
+                                <td>
+                                    <input name="submitData" id="row4_2"  />
+                                </td>
+                                <td>
+                                    <input name="submitData" id="row4_3"  />
+                                </td>
+                                <td>
+                                    <input name="submitData" id="row4_4"  />
+                                </td>
+                                <td>
+                                    <input name="submitData" id="row4_5"  />
+                                </td>
+                                <td>
+                                    <input name="submitData" id="row4_6"  />
+                                </td>
+                                <td>
+                                    <input name="submitData" id="row4_7"  />
+                                </td>
+                                <td>
+                                    <input name="submitData" id="row4_8"  />
+                                </td>
+                                <td>
+                                    <input name="submitData" id="row4_9"  />
+                                </td>
+                                <td>
+                                    <input name="submitData" id="row4_10"  />
+                                </td>
+                                <td>
+                                    <input name="submitData" id="row4_11"  />
+                                </td>
+                                <td>
+                                    <input name="submitData" id="row4_12"  />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td colspan="2">
+                    <table frame="void" style="width:100%;height:100%" border="1">
+                        <tbody>
+                            <tr><td><span style="color:red">*</span>说明</td></tr>
+                            <tr>
+                                <td>
+                                    <textarea name="submitData" rows="8" id="row4_13" ></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input name="submitData" id="row4_14"  />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>教研组长签字：</td>
+                <td><input name="submitData" id="TCTeachGroup"  /></td>
+                <td>专业处签字：</td>
+                <td><input name="submitData" id="TCArtDepartment"  /></td>
+            </tr>
+            <tr>
+                <td colspan="4" style="text-align:left;font-size:8px">
+                    <b>
+                        填表说明：1、凡是标“<span style="color:red">*</span>”号的选项可以不填，没有该标注的必填。<br>
+                        &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        2、本学期共21周：文化考试2周、专业考试2周、专业教学实数16周。<br>
+                        &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        3、本学期总课时数=专业教学实数16周+专业考试2周*课程周课时数
+                    </br>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot class="noprint">
+            <tr>
+                <td colspan="4" align="right">
+                    <button type="submit" class="btn btn-default" onclick="btnSave()" name="submit">保存</button>
+                    <button type="button" class="btn btn-default" style="margin:5px 5px;" onclick="btnBack()">返回</button>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<script src="teachManage/teachPlan.js"></script>

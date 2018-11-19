@@ -1,0 +1,100 @@
+﻿<!--
+作者：qianqi
+创建日期：2018.9.26
+文档说明：教师资料模块
+
+-->
+<link href="/js/bootstrap-table-master/src/bootstrap-table.css" rel="stylesheet" type="text/css">
+
+<div class="panel panel-default" id="DetailPanel">
+    <div class="panel-heading">
+        <h3 class="panel-title">用户详情</h3>
+    </div>
+    <div class="panel-body">
+        <input type="text" class="form-control" id="student_idx" style="display:none">
+        <div class="row">
+            <div class="col-xs-4 col-md-4">
+                <canvas id="image_can" style="width:300px;height:390px;border:ridge"></canvas>
+                <input type="file" id="student_img" style="display:none" onchange="handlePreview(this,IMG_ARRAY,'image_can')">
+            </div>
+            <div class="col-xs-5 col-md-5">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="account_name" class="col-md-3 control-label">用户名</label>
+                        <div class="col-md-9">
+                            <input type="text" name="submitData" class="form-control" id="account_name" />
+                        </div>
+                    </div>
+                    <!--
+                    <div class="form-group">
+                        <label for="account_password" class="col-md-3 control-label">用户密码</label>
+                        <div class="col-md-9">
+                            <input type="text" name="submitData" class="form-control" id="account_password" />
+                        </div>
+                    </div>-->
+                    <div class="form-group">
+                        <label for="account_link_idx" class="col-md-3 control-label">关联ID</label>
+                        <div class="col-md-9">
+                            <input type="text" name="submitData" class="form-control" id="account_link_idx" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="role_type" class="col-md-3 control-label">用户身份</label>
+                        <div class="col-md-9">
+                            <input type="text" name="submitData" class="form-control" id="role_type">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="account_delete" class="col-md-3 control-label">用户状态</label>
+                        <div class="col-md-9">
+                            <input type="text" name="submitData" class="form-control" id="account_delete">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="teacher_code" class="col-md-3 control-label">工号</label>
+                        <div class="col-md-9">
+                            <input type="text" name="submitData" class="form-control" id="teacher_code" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="teacher_name" class="col-md-3 control-label">姓名</label>
+                        <div class="col-md-9">
+                            <input type="text" name="submitData" class="form-control" id="teacher_name" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="teacher_sex" class="col-md-3 control-label">性别</label>
+                        <div class="col-md-9">
+                            <input type="text" name="submitData" class="form-control" id="teacher_sex">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="major_code" class="col-md-3 control-label">专业</label>
+                        <div class="col-md-9">
+                            <input type="text" name="submitData" class="form-control" id="major_code">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="academy_code" class="col-md-3 control-label">校区</label>
+                        <div class="col-md-9">
+                            <input type="text" name="submitData" class="form-control" id="academy_code">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <input type="text" class="form-control" id="student_image" name="submitData" style="display:none">
+        </div>
+        <table id="dataTable"></table>
+    </div>
+</div><!-- /.modal-content -->
+<!-- modal -->
+<!--以下为js脚本-->
+<!--<script src="js/bootstrap-table-master/src/bootstrap-table.js"></script>
+<!--这个汉化包可选，但是必须在bootstrap-table.js后面 -->
+<!--<script src="js/bootstrap-table-master/src/locale/bootstrap-table-zh-CN.js"></script>-->
+<!--以下为bootstrap table控件配置文件，需在初始化js文件之前引入-->
+<script language="javascript" src='/js/tableControl.js'></script>
+<!--本页面相关js文件-->
+<script src="/homePage/adminProfile.js"></script>
+<script src="/js/exif-js-master/exif.js"></script>
+<script src="/js/bootbox.min.js"></script>

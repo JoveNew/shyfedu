@@ -1,0 +1,39 @@
+﻿<style type="text/css">
+    th {
+        text-align: center
+    }
+
+    td {
+        text-align: center
+    }
+</style>
+
+<style type="text/css" media="print">
+    .noprint {
+        display: none
+    }
+</style>
+<div style="margin-left:5px" class="row noprint">
+    <div style="display:inline-block "><button type="button" class="btn btn-default" onclick="btnBackOnClick()">返回</button></div>
+    <div style="display:inline-block "><button type="button" class="btn btn-default" onclick="btnPrintOnClick()">打印</button></div>
+</div>
+<div style="text-align:center" class="row">
+    <div style="display:inline-block;"><h4><b>班级总课表</b></h4></div>
+</div>
+
+<table border="1" style="width:100%;table-layout:fixed" align="center">
+    <thead>
+        <tr>
+            <th rowspan="2" style="height:50px;width:16px;" class="first"></th>
+            <th colspan="10" style="width:26%;">星期一</th>
+            <th colspan="10" style="width:26%;">星期二</th>
+            <th colspan="10" style="width:26%;">星期三</th>
+            <th colspan="10" style="width:26%;">星期四</th>
+            <th colspan="10" style="width:26%;">星期五</th>
+        </tr>
+        <tr class="addDay"></tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script src="teachManage/totalClassTable.js"></script>

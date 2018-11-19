@@ -1,0 +1,95 @@
+﻿<link href="js/bootstrap-table-master/src/bootstrap-table.css" rel="stylesheet" type="text/css">
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <b>成绩管理</b>
+    </div>
+    <div class="panel-body">
+        <div style="margin-top: 10px; float: left">
+            <div class="form-inline">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="search" id="subject_idx" placeholder="课程ID" style="display: none" />
+                </div>
+                <div class="form-group">
+                    <select name="search" style="width:184px;" class="form-control">
+                        <option value=""  selected=selected>合格情况</option>
+                        <option value="0">合格学生</option>
+                        <option value="1">不合格学生</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-default" onclick="btnSearchOnClick()">查询</button>
+                <button type="button" class="btn btn-default" onclick="btnResetOnClick()">重置</button>
+                <button type="button" class="btn btn-default" onclick="btnBackOnClick()">返回</button>
+            </div>
+        </div>
+        <table id="dataTable"></table>
+    </div>
+</div>
+    <div class="modal fade" tabindex="-1" role="dialog" id="DetailModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h3 class="modal-title">
+                        评分
+                    </h3>
+                </div>
+                <div class="modal-body row">
+                    <div class="col-xs-10 col-md-10">
+                        <input type="text" class="form-control" id="study_idx" style="display: none" />
+                        <input type="text" class="form-control" name="submitData" id="study_score_teacher_idx" style="display: none" />
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group row">
+                                <label for="study_common_score" class="control-label col-sm-3 col-md-3">平时成绩</label>
+                                <div class="col-sm-9 col-md-9">
+                                    <input type="text" name="submitData" class="form-control " id="study_common_score" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="study_middle_score" class="control-label col-sm-3 col-md-3">期中成绩</label>
+                                <div class="col-sm-9 col-md-9">
+                                    <input type="text" name="submitData" class="form-control" id="study_middle_score" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="study_terminal_score" class="control-label col-sm-3 col-md-3">期末成绩</label>
+                                <div class="col-sm-9 col-md-9">
+                                    <input type="text" name="submitData" class="form-control" id="study_terminal_score" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="study_term_score" class="control-label col-sm-3 col-md-3">学期总评</label>
+                                <div class="col-sm-9 col-md-9">
+                                    <input type="text" name="submitData" class="form-control" id="study_term_score" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="study_total_score" class="control-label col-sm-3 col-md-3">学年总评</label>
+                                <div class="col-sm-9 col-md-9">
+                                    <input type="text" name="submitData" class="form-control" id="study_total_score" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btnSave" onclick="btnSaveOnClick()">
+                        提交
+                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose">
+                        关闭
+                    </button>
+                </div>
+            </div>
+            <!-- modal-content -->
+        </div>
+        <!-- modal-dialog -->
+    </div>
+
+
+    <script language=javascript src='js/tableControl.js'></script>
+    <!--本页面相关js文件-->
+    <script src="teachManage/scoreManage.js"></script>
+    <script src="./js/bootbox.min.js"></script>

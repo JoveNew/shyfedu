@@ -1,0 +1,129 @@
+﻿<div class="panel panel-default" id="topTable">
+    <div class="panel-heading">
+        <b>课程表</b>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <div id="lessonTable" class="table-responsive"></div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-md-5">
+        <!--<div class="panel panel-default">
+            <div class="panel-heading">
+                <b>新闻通告</b>
+                <a class="s" href=" #" onclick="sideBarOnClick('informationManage.newsManage')">
+                    <span style="cursor: pointer;float:right;">更多&gt;&gt;&gt;</span>
+                </a>
+            </div>
+            <div style="width:100%; float:left;">
+                <div style="width:100%;  ">
+                </div>
+            </div>
+            <div style="width:100%;">
+                <ul class="xxgk_dot" id="news"></ul>
+            </div>
+        </div>-->
+        <div class="portlet box blue-steel">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-bell-o"></i>新闻通告
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: auto;">
+                    <div class="scroller" style="overflow: hidden; width: auto; height: auto;" data-always-visible="1" data-rail-visible="0" data-initialized="1">
+                        <ul class="feeds" id="news">
+                        </ul>
+                    </div>
+                </div>
+                <div class="scroller-footer">
+                    <div class="btn-arrow-link pull-right">
+                        <a class="s" href=" #" onclick="sideBarOnClick('informationManage.newsManage')">更多</a>
+                        <i class="icon-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-7">
+        <div class="portlet box blue-steel">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-star"></i>优秀学生作品赏析
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: auto;">
+                    <div class="scroller" style="overflow: hidden; width: auto; height: auto;" data-always-visible="1" data-rail-visible="0" data-initialized="1">
+                        <div id="myCarousel" class="carousel slide">
+                            <ol class="carousel-indicators">
+                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#myCarousel" data-slide-to="1"></li>
+                                <li data-target="#myCarousel" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item active" id="picFirst">
+                                    <img src="dataImage/homepage/1.JPEG" class="img-responsive center-block" style="height:400px" alt="First slide">
+                                </div>
+                                <div class="item" id="picSecond">
+                                    <img src="dataImage/homepage/2.JPEG" class="img-responsive center-block" style="height:400px" alt="Second slide">
+                                </div>
+                                <div class="item" id="picThird">
+                                    <img src="dataImage/homepage/3.JPEG" class="img-responsive center-block" style="height:400px" alt="Third slide">
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="panel panel-default">
+            <div class="panel-heading">
+                <b>优秀学生作品赏析</b>
+                <div id="myCarousel" class="carousel slide">
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active" id="picFirst">
+                            <img src="dataImage/homepage/1.JPEG" class="img-responsive center-block" style="height:400px" alt="First slide">
+                        </div>
+                        <div class="item" id="picSecond">
+                            <img src="dataImage/homepage/2.JPEG" class="img-responsive center-block" style="height:400px" alt="Second slide">
+                        </div>
+                        <div class="item" id="picThird">
+                            <img src="dataImage/homepage/3.JPEG" class="img-responsive center-block" style="height:400px" alt="Third slide">
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>-->
+    </div>
+
+</div>
+
+
+<!--本页面相关js文件-->
+<script src="js/tableControl.js"></script>
+<script src="homePage/homePage.js"></script>

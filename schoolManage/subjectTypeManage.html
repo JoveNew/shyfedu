@@ -1,0 +1,83 @@
+﻿<link href="js/bootstrap-table-master/src/bootstrap-table.css" rel="stylesheet" type="text/css">
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <b>课程类别</b>
+    </div>
+    <div class="panel-body">
+        <div style="margin-top: 10px; float: left">
+            <div class="form-inline">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="search" placeholder="编号" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="search" placeholder="名称" />
+                </div>
+                <div class="form-group">
+                    <select class="form-control" name="search">
+                        <option value="" selected="selected" >状态</option>
+                        <option value="0">启用</option>
+                        <option value="1">停用</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-default" onclick="btnSearchOnClick()">
+                    查询
+                </button>
+                <button type="button" class="btn btn-default" onclick="btnResetOnClick()">
+                    重置
+                </button>
+                <button type="button" class="btn btn-default" onclick="btnInsertOnClick()">
+                    新增
+                </button>
+            </div>
+        </div>
+        <table id="dataTable"></table>
+    </div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" id="DetailModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="modal-title">
+                    新增
+                </h3>
+            </div>
+            <div class="modal-body row">
+                <div class="col-xs-10 col-md-10">
+                    <input type="text" class="form-control" id="news_idx" style="display: none" />
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group ">
+                            <label for="subject_type" class="control-label col-sm-3 col-md-3">编号</label>
+                            <div class="col-sm-9 col-md-9">
+                                <input type="text" name="submitData" class="form-control " id="subject_type" />
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="subject_type_name" class="control-label col-sm-3 col-md-3">名称</label>
+                            <div class="col-sm-9 col-md-9">
+                                <input type="text" name="submitData" class="form-control" id="subject_type_name" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnSave" onclick="btnSaveOnClick()">
+                        保存
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose">
+                        关闭
+                </button>
+            </div>
+        </div>
+        <!-- modal-content -->
+    </div>
+    <!-- modal-dialog -->
+</div>
+    <!--以下为js脚本-->
+    <!--本页面相关js文件-->
+    <script src="schoolManage/subjectTypeManage.js"></script>
+    <script src="js/exif-js-master/exif.js"></script>
+    <script src="./js/bootbox.min.js"></script>

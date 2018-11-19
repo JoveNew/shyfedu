@@ -1,0 +1,67 @@
+﻿<!--
+作者：qianqi
+创建日期：2018.9.29
+文档说明：新闻详情模块
+-->
+<link href="/js/bootstrap-table-master/src/bootstrap-table.css" rel="stylesheet" type="text/css">
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">新闻</h3>
+    </div>
+    <div class="panel-body">
+        <table border="0" width="98%" cellspacing="0" cellpadding="0">
+            <tr>
+                <td align=center style="font-size:19px;font-weight:bold;padding-top:10px;padding-bottom:10px" >
+                <span id="newsTitle"></span> </td>
+            </tr>
+            <tr>
+                <td bgcolor="#3A5B7F" height="1"></td>
+            </tr>
+            <tr>
+                <td align=center class=detailmain style="padding-bottom:20;font-size:15px;padding-top:10px;">
+                <span id="newsDay"></span> <escaped></td>
+            </tr>
+        </table>
+
+        <table border="0" width="98%" cellspacing="0" cellpadding="0">
+            <tr height="120">
+                <td style="font:15/22px;">
+                    <table width=100% border=0 align=center>
+                        <tr>
+                            <td height="120" valign=top style="padding-top:10px" class="detailmain">
+                                <!--$type-->
+                                <style type="text/css">
+                                    p {
+                                        font-family: '宋体';
+                                        line-height: 200%;
+                                        font-size: 12pt;
+                                        color: #000000;
+                                        margin: 0 ;
+                                        text-indent: 2em !important
+                                    }
+                                </style>
+                                <div style="text-indent: 2em;font-family:'宋体';line-height:200%;font-size:12pt;color:#000000;">
+                                    <P style="WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; COLOR: rgb(0,0,0); FONT: 14px/22px Simsun; WIDOWS: 1; LETTER-SPACING: normal; TEXT-INDENT: 0px; -webkit-text-stroke-width: 0px" id="newsContent">
+                                    </P>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div><!-- /.modal-content -->
+<!-- modal -->
+<!--以下为js脚本-->
+<!--<script src="js/bootstrap-table-master/src/bootstrap-table.js"></script>
+<!--这个汉化包可选，但是必须在bootstrap-table.js后面 -->
+<!--<script src="js/bootstrap-table-master/src/locale/bootstrap-table-zh-CN.js"></script>-->
+<!--以下为bootstrap table控件配置文件，需在初始化js文件之前引入-->
+<script language="javascript" src='/js/tableControl.js'></script>
+<!--本页面相关js文件-->
+<script src="/homePage/newsDetail.js"></script>
+<script src="/js/exif-js-master/exif.js"></script>
+<script src="/js/bootbox.min.js"></script>
+

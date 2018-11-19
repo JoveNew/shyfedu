@@ -1,0 +1,161 @@
+﻿<style type="text/css">
+    th {
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    textarea {
+        width: 100%;
+        height: 100%;
+        border-style: none;
+        resize: none
+    }
+    .form-inline input {
+        text-align: center;
+        width: 100px;
+        border-top-style: none;
+        border-right-style: none;
+        border-left-style: none;
+        border-bottom-style: solid;
+        font-style:oblique;
+    }
+    table input {
+        border: 0px;
+        width: 100%;
+        height: 100%;
+        text-align:center
+    }
+
+    table {
+        width: 100%;
+        height: 100%
+    }
+</style>
+<style type="text/css" media="print">
+    .noprint{
+        display:none
+    }
+</style>
+
+<h4 style="text-align:center">上海逸夫职业技术学校</h4>
+<div style="text-align:center;margin-bottom:10px" id="year_name">
+</div>
+
+<div>
+    <table border="1" style="width:100%">
+        <thead>
+            <tr>
+                <th rowspan="2">课程</th>
+                <th rowspan="2" style="width:180px">班级</th>
+                <th rowspan="2">总人数</th>
+                <th colspan="6" style="width:30%">分档人数</th>
+                <th rowspan="2">优良率</th>
+                <th rowspan="2">任课教师</th>
+            </tr>
+            <tr>
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+                <th>D</th>
+                <th>E</th>
+                <th>F</th>
+            </tr>
+            <tr>
+                <th>
+                    <input id="subject_name" name="submitData"/>
+                </th>
+                <th>
+                    <input id="class_name" name="submitData" />
+                </th>
+                <th>
+                    <input id="studentNum" name="submitData" class="keepReadOnly"/>
+                </th>
+                <th>
+                    <input id="levelA" name="submitData" class="keepReadOnly"/>
+                </th>
+                <th>
+                    <input id="levelB" name="submitData" class="keepReadOnly"/>
+                </th>
+                <th>
+                    <input id="levelC" name="submitData" class="keepReadOnly"/>
+                </th>
+                <th>
+                    <input id="levelD" name="submitData" class="keepReadOnly"/>
+                </th>
+                <th>
+                    <input id="levelE" name="submitData" class="keepReadOnly"/>
+                </th>
+                <th>
+                    <input id="levelF" name="submitData" class="keepReadOnly"/>
+                </th>
+                <th>
+                    <input id="excellentPer" name="submitData" class="keepReadOnly"/>
+                </th>
+                <th>
+                    <input id="account_name" name="submitData" />
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="11">
+                    <table border="1" frame="void">
+                        <tbody>
+                            <tr>
+                                <td style="width:30px">备注</td>
+                                <td aglin="left">
+                                    <input id="reasonFromTeach" name="submitData" style="text-align:left"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="11">一、学生失分较多的原因 <br> 1.教学方面：</td>
+            </tr>
+            <tr>
+                <td colspan="11">
+                    <textarea rows="5" cols="153" id="reasonFromTeach" name="submitData"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="11">2. 学生自身方面：</td>
+            </tr>
+            <tr>
+                <td colspan="11">
+                    <textarea rows="5" cols="153" id="reasonFromStudent" name="submitData"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="11">二、教学建议、要求和下一步改进的设想：</td>
+            </tr>
+            <tr>
+                <td colspan="11">
+                    <textarea rows="5" cols="153" id="improveIdea" name="submitData"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="11">三、其他说明：</td>
+            </tr>
+            <tr>
+                <td colspan="11">
+                    <textarea rows="5" cols="153" id="otherInstruction" name="submitData"></textarea>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot class="noprint">
+            <tr>
+                <td colspan="11" align="right">
+                    <button type="submit" class="btn btn-default" onclick="btnSaveOnClick()" name="submit">保存</button>
+                    <button type="button" class="btn btn-default" style="margin:5px 5px;" onclick="btnBackOnClick()">返回</button>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<script language=javascript src='js/tableControl.js'></script>
+<!--本页面相关js文件-->
+<script src="teachManage/qualityManage.js"></script>
+<script src="./js/bootbox.min.js"></script>

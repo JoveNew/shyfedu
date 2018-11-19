@@ -1,0 +1,37 @@
+﻿<style type="text/css" media="print">
+    .noprint {
+        display: none
+    }
+</style>
+
+<!--<div class="panel panel-default">-->
+    <!--<div class="panel-heading">教师课表</div>-->
+    <!--<div class="panel-body">-->
+        <div style="margin-bottom:10px;float:right">
+            <div class="form-inline noprint" id="toolBar">
+                <div class="form-group">
+                    <select type="text" name="search" class="form-control" id="teacherSearch">
+                        <option value="" selected>选择教师</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-default" onclick="btnSearchOnClick()">查询</button>
+                <button type="button" class="btn btn-default" onclick="btnResetOnClick()"> 重置</button>
+                <button type="button" class="btn btn-default" onclick="btnPrintOnClick()"> 打印</button>
+                <button type="button" class="btn btn-default" onclick="btnBackOnClick()"> 返回</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <h2 id="classTableHead" style="text-align:center">教师课表</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <div id="classTable" class="table-responsive" ></div>
+            </div>
+        </div>
+    <!--</div>-->
+<!--</div>-->
+
+<!--本页面相关js文件-->
+<script src="teachMANAGE/scheduleTeacherTable.js"></script>

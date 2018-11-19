@@ -1,0 +1,135 @@
+﻿<div class="panel panel-default">
+    <div class="panel-heading">学生列表</div>
+    <div class="panel-body">
+        <div style="float:left;margin-top:10px;">
+            <div class="form-inline">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="search" placeholder="学号">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="search" placeholder="姓名">
+                </div>
+                <div class="form-group">
+                    <select id="selectType" style="height: 34px; width: 80px;" name="search">
+                        <option value="" selected="selected" >性别</option>
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select id="academySearch" style="height: 34px; width: 80px;" name="search">
+                        <option value="" selected="selected" >校区</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select id="majorSearch" style="height: 34px; width: 80px;" name="search">
+                        <option value="" selected="selected" >专业</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select id="classSearch" style="height: 34px; width: 80px;" name="search">
+                        <option value="" selected="selected">班级</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-default" onclick="btnSearchOnClick()">查询</button>
+                <button type="button" class="btn btn-default" onclick="btnResetOnClick()">重置</button>
+                <button type="button" class="btn btn-default" onclick="btnInsertOnClick()">新增</button>
+            </div>
+        </div>
+        <table id="dataTable"></table>
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="DetailModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">学生详情</h3>
+            </div>
+            <div class="modal-body">
+                <!--添加一个隐藏的input框以便保存修改时可以获取idx的值-->
+                <input type="text" class="form-control" id="student_idx" style="display:none">
+                <div class="row">
+                    <div class="col-xs-5 col-md-5">
+                        <div class="form-group col-xs-12 col-md-12">
+                            <canvas id="image_can" style="width:200px;height:260px;border:ridge"></canvas>
+                            <input type="file" id="student_img" style="display:none" onchange="handlePreview(this,IMG_ARRAY,'image_can')">
+                            <h4 id="imgName" style="text-align:center"></h4>
+                        </div>
+                    </div>
+                    <div class="col-xs-7 col-md-7">
+                        <form class="form-horizontal">
+                            <div class="row" style="height:50px">
+                                <label for="student_code" class="col-sm-3 control-label">学号</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="submitData" class="form-control" id="student_code">
+                                </div>
+                            </div>
+                            <div class="row" style="height:50px">
+                                <label for="student_name" class="col-sm-3 control-label">姓名</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="submitData" class="form-control" id="student_name">
+                                </div>
+                            </div>
+                            <div class="row" style="height:50px">
+                                <label for="student_sex" class="col-sm-3 control-label">性别</label>
+                                <div class="col-sm-9">
+                                    <!--<input type="text" name="submitData" class="form-control" id="student_sex">-->
+                                    <select type="text" name="submitData" class="form-control" id="student_sex">
+                                        <option value="" selected>请选择性别</option>
+                                        <option value="男">男</option>
+                                        <option value="女">女</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row" style="height:50px">
+                                <label for="student_grade" class="col-sm-3 control-label">年级</label>
+                                <div class="col-sm-9"> 
+                                    <input type="text" name="submitData" class="form-control" id="student_grade"/>
+                                </div>
+                            </div>
+                            <div class="row" style="height:50px">
+                                <label for="class_idx" class="col-sm-3 control-label">班级</label>
+                                <div class="col-sm-9">
+                                    <select type="text" name="submitData" class="form-control" id="class_idx" >
+                                        <option value="" selected>请选择班级</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row" style="height:50px">
+                                <label for="class_idx" class="col-sm-3 control-label">AB班</label>
+                                <div class="col-sm-9">
+                                    <select type="text" name="submitData" class="form-control" id="link_class_idx">
+                                        <option value="" selected>请选择AB班</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row" style="height:50px">
+                                    <label for="major_code" class="col-sm-3 control-label">专业</label>
+                                <div class="col-sm-9">
+                                    <select type="text" name="submitData" class="form-control" id="major_code"></select>
+                                </div>
+                            </div>
+                            <div class="row" style="height:50px">
+                                <label for="academy_code" class="col-sm-3 control-label">所在校区</label>
+                                <div class="col-sm-9">
+                                    <select type="text" name="submitData" class="form-control" id="academy_code"></select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <input type="text" class="form-control" id="student_image" name="submitData" style="display:none">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btnSave" onclick="btnSaveOnClick()">保存</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose">关闭</button>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--本页面相关js文件-->
+<script src="schoolMANAGE/studentManage.js"></script>
+<script src="js/exif-js-master/exif.js"></script>
+<!--<script src="js/imgUpload.js"></script>-->

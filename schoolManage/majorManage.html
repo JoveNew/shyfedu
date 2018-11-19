@@ -1,0 +1,87 @@
+﻿<link href="js/bootstrap-table-master/src/bootstrap-table.css" rel="stylesheet" type="text/css">
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <b>专业列表</b>
+    </div>
+    <div class="panel-body">
+        <div style="margin-top: 10px; float: left">
+            <div class="form-inline">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="search" placeholder="专业编号" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="search" placeholder="专业名称" />
+                </div>
+                <div class="form-group">
+                    <select class="form-control" name="search">
+                        <option value="" selected="selected" >状态</option>
+                        <option value="0">启用</option>
+                        <option value="1">停用</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-default" onclick="btnSearchOnClick()">
+                    查询
+                </button>
+                <button type="button" class="btn btn-default" onclick="btnResetOnClick()">
+                    重置
+                </button>
+                <button type="button" class="btn btn-default" onclick="btnInsertOnClick()">
+                    新增
+                </button>
+            </div>
+        </div>
+        <table id="dataTable"></table>
+    </div>
+</div>
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="DetailModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="modal-title">
+                    专业详情
+                </h3>
+            </div>
+            <div class="modal-body row">
+                <div class="col-xs-10 col-md-10">
+                    <form class="form-horizontal" role="form">
+                        <input type="text" class="form-control" id="form_code" style="display:none"/>
+                        <div class="form-group">
+                            <label for="major_code" class="col-md-3 control-label">专业编号</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="submitData" id="major_code" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="major_name" class="col-md-3 control-label">专业名称</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="submitData" id="major_name" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnSave" onclick="btnSaveOnClick()">
+                    保存
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose">
+                    关闭
+                </button>
+            </div>
+        </div>
+        <!-- modal-content -->
+    </div>
+    <!-- modal-dialog -->
+</div>
+<!--以下为js脚本-->
+<!--以下为bootstrap table控件配置文件，需在初始化js文件之前引入-->
+<script language="javascript" src='js/tableControl.js'></script>
+<!--本页面相关js文件-->
+<script src="schoolManage/majorManage.js"></script>
+<script src="js/exif-js-master/exif.js"></script>
+<script src="./js/bootbox.min.js"></script>

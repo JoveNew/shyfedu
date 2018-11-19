@@ -1,0 +1,133 @@
+﻿<!--
+作者：qianqi
+创建日期：2018.9.21
+文档说明：
+
+-->
+<link href="/js/bootstrap-table-master/src/bootstrap-table.css" rel="stylesheet" type="text/css">
+<div class="panel panel-default">
+    <div class="panel-heading">
+        用户列表
+    </div>
+    <div class="panel-body">
+        <div style="margin-top: 10px; float: left">
+            <div class="form-inline">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="search" placeholder="用户名" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="search" placeholder="关联名" />
+                </div>
+                <div class="form-group">
+                    <select class="form-control" name="search">
+                        <option value="" selected="selected" disabled="disabled">角色</option>
+                        <option value="T">教师</option>
+                        <option value="S">学生</option>
+                        <option value="E">专家</option>
+                        <option value="M">管理员</option>
+                        <option value="A">系统管理员</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select  class="form-control" name="search">
+                        <option value="" selected="selected" disabled="disabled">状态</option>
+                        <option value="1">冻结</option>
+                        <option value="0">激活</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-default" onclick="btnSearchOnClick()">
+                    查询
+                </button>
+                <button type="button" class="btn btn-default" onclick="btnResetOnClick()">
+                    重置
+                </button>
+                <button type="button" class="btn btn-default" onclick="btnInsertOnClick()">
+                    新增
+                </button>
+            </div>
+        </div>
+        <table id="dataTable"></table>
+    </div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" id="DetailModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="modal-title">
+                    用户详情
+                </h3>
+            </div>
+            <div class="modal-body row">
+                <input type="text" class="form-control" id="account_idx"  style="display: none" />
+                <div class="col-xs-10 col-md-10">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label for="account_name" class="col-md-3 control-label">用户名</label>
+                            <div class="col-md-9">
+                                <input type="text" name="submitData" class="form-control" id="account_name" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="account_password" class="col-md-3 control-label">密码</label>
+                            <div class="col-md-9">
+                                <input type="text" name="submitData" class="form-control" id="account_password" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="account_link_idx" class="col-md-3 control-label">关联ID</label>
+                            <div class="col-md-9">
+                                <input type="text" name="submitData" class="form-control" id="account_link_idx" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="role_type" class="col-md-3 control-label">用户身份</label>
+                            <div class="col-md-9">
+                                <select class="form-control" name="submitData" id="role_type">
+                                    <option value="" disabled>请选择</option>
+                                    <option value="S">学生</option>
+                                    <option value="T">老师</option>
+                                    <option value="E">专家</option>
+                                    <option value="M">管理员</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="account_delete" class="col-md-3 control-label">用户状态</label>
+                            <div class="col-md-9">
+                                <select class="form-control" name="submitData" id="account_delete">
+                                    <option value="" disabled>请选择</option>
+                                    <option value="0">激活</option>
+                                    <option value="1">冻结</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnSave" onclick="btnSaveOnClick()">
+                    保存
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose">
+                    关闭
+                </button>
+            </div>
+        </div>
+        <!-- modal-content -->
+    </div>
+    <!-- modal-dialog -->
+</div>
+<!-- modal -->
+<!--以下为js脚本-->
+<!--<script src="js/bootstrap-table-master/src/bootstrap-table.js"></script>
+<!--这个汉化包可选，但是必须在bootstrap-table.js后面 -->
+<!--<script src="js/bootstrap-table-master/src/locale/bootstrap-table-zh-CN.js"></script>-->
+<!--以下为bootstrap table控件配置文件，需在初始化js文件之前引入-->
+<script language="javascript" src='/js/tableControl.js'></script>
+<!--本页面相关js文件-->
+<script src="/systemManage/userManage.js"></script>
+<script src="/js/exif-js-master/exif.js"></script>
+<script src="/js/bootbox.min.js"></script>

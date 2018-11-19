@@ -1,0 +1,152 @@
+﻿<!--
+作者：lixiaowen
+创建时间：2018.8.30
+文档说明：
+1.页面框架，显示表格，完成搜索、新增、重置功能。
+2.完成数据修改功能。
+
+
+作者：lixiaowen
+创建时间：2018.8.30
+文档说明：
+1.修改模态框缺少列的问题
+
+作者：lixiaowen
+创建时间：2018.9.5
+文档说明：
+1.修改模态框中专业类型栏的显示
+-->
+
+<link href="js/bootstrap-table-master/src/bootstrap-table.css" rel="stylesheet" type="text/css">   
+
+<div class="panel panel-default">
+    <div class="panel-heading"><b>课程列表</b></div>
+    <div class="panel-body">
+        <div style="margin-top:10px;float:left">
+            <div class="form-inline" id="toolbar">
+                <div class="form-group" style="display:none">
+                    <input type="text" class="form-control" name="search" >
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="search" placeholder="课程名称">
+                </div>
+                <div class="form-group">
+                    <form>
+                        <select name="search" style="width:184px;" class="class_idx form-control">
+                            <option value="" selected=selected>班级</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="form-group">
+                    <form>
+                        <select name="search" style="width:184px;" class="subject_type form-control">
+                            <option value="" selected=selected>课程类型</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="form-group">
+                    <form>
+                        <select name="search" style="width:184px;" class="year form-control">
+                            <option value="" selected=selected>修读学期</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <table id="dataTable"></table>
+    </div>
+</div>   
+
+<div class="modal fade" tabindex="-1" role="dialog" id="DetailModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="modal-title">课程详情</h3>
+            </div>
+            <div class="modal-body">
+                <input type="text" class="form-control" id="subject_idx" style="display:none" />
+                <div class="row">
+                    <div class="col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <label for="subject_code">课程编号</label>
+                            <input type="text" name="submitData" class="form-control" id="subject_code" />
+                        </div>
+                        <div class="form-group">
+                            <label for="subject_type">课程类型</label>
+                            <select name="submitData" class="form-control" id="subject_type">
+                                <option value=""   selected=selected>请选择</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="teacher_idx1">任课教师</label>
+                            <select name="submitData" class="form-control" id="teacher_idx1">
+                                <option value=""   selected=selected>请选择</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="room_idx">上课教室</label>
+                            <select name="submitData" class="form-control" id="room_idx">
+                                <option value=""   selected=selected>请选择</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject_score_type">评分类型</label>
+                            <select name="submitData" class="form-control" id="subject_score_type">
+                                <option value=""   selected=selected>请选择</option>
+                                <option value="E">专家组评分</option>
+                                <option value="T">教师评分</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <label for="subject_name">课程名称</label>
+                            <input type="text" name="submitData" class="form-control" id="subject_name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="year_code">修读学期</label>
+                            <select name="submitData" class="form-control" id="year_code">
+                                <option value=""   selected=selected>请选择</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="teacher_idx2">任课教师</label>
+                            <select name="submitData" class="form-control" id="teacher_idx2">
+                                <option value=""   selected=selected>请选择</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="class_idx">班级</label>
+                            <select name="submitData" class="form-control" id="class_idx">
+                                <option value=""   selected=selected>请选择</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="score_group_code">评分小组</label>
+                            <select name="submitData" class="form-control" id="score_group_code">
+                                <option value=""   selected=selected>请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary"  id="btnSave" onclick="btnSaveOnClick()">保存</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose">关闭</button>
+                </div>
+            </div>
+        </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+</div><!-- modal -->   
+
+<!--以下为js脚本-->
+<script src="js/bootstrap-table-master/src/bootstrap-table.js"></script>
+<!--这个汉化包可选，但是必须在bootstrap-table.js后面 -->
+<script src="js/bootstrap-table-master/src/locale/bootstrap-table-zh-CN.js"></script>
+<!--以下为bootstrap table控件配置文件，需在初始化js文件之前引入-->
+<script language=javascript src='js/tableControl.js'></script>
+<!--本页面相关js文件-->
+<script src="teachManage/subjectManage.js"></script>
+<script src="./js/bootbox.min.js"></script>

@@ -1,0 +1,10 @@
+﻿table th,td {
+    vertical-align: middle !important
+}
+.modal-header {
+    background-color: #50718d
+}
+
+.modal-title{
+    color:white
+}

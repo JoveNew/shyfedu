@@ -1,0 +1,193 @@
+﻿<style type="text/css" media="print">
+    .noprint {
+        display:none
+    }
+</style>
+<style type="text/css">
+    .form-inline input {
+        text-align: center;
+        width: 100px;
+        margin-right: 30px;
+        border-top-style: none;
+        border-right-style: none;
+        border-left-style: none;
+        border-bottom-style: solid
+    }
+    textarea {
+        width: 100%;
+        height: 100%;
+        border-style: none;
+        resize:none
+    }
+</style>
+
+<div id="head"  style="text-align:center">
+    <h4 id="title"></h4>
+</div>
+<div style="margin-bottom:10px">
+    <div class="form-inline" style="text-align:center">
+        <label for="task_name">任务名称：</label>
+        <input name="submitData" id="task_name" style="width:200px;"/>
+        <label for="class_name">授课班级：</label>
+        <input name="submitData" id="class_name" style="width:180px;" />
+        <label for="teachLesson">授课课时：</label>
+        <input name="submitData" id="subject_hour" style="margin-right:0px;" />
+    </div>
+    <div class="form-inline" style="text-align:center">
+        <label for="teachDate">授课日期：</label>
+        <input name="submitData" id="teachDate"/>
+        <label for="subject_type_name">课程类型：</label>
+        <input name="submitData" id="subject_type_name"/>
+        <label for="account_name">授课教师：</label>
+        <input name="submitData" id="account_name" style="margin-right:0px;"/>
+    </div>
+</div>
+
+<div id="table">
+    <table border="1" style="width:100%;text-align:center">
+        <thead>
+            <tr>
+                <th style="text-align:center">项目</th>
+                <th style="text-align:center">内容</th>
+                <th style="text-align:center">资料选用</th>
+                <th style="text-align:center">备注</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>一、学生情况分析</td>
+                <td ><textarea name="submitData" id="row1_1" rows="3" /></td>
+                <td ><textarea name="submitData" id="row1_2" rows="3" /></td>
+                <td ><textarea name="submitData" id="row1_3" rows="3" /></td>
+            </tr>
+            <tr>
+                <td>二、教学目标：</td>
+                <td>
+                    <table frame="void" border="1" style="width:100%">
+                        <tbody>
+                            <tr>
+                                <td >1、 知识与技能：</td>
+                                <td ><textarea name="submitData" id="row2_1_1" rows="2"  /></td>
+                            </tr>
+                            <tr>
+                                <td >2、过程与方法：</td>
+                                <td ><textarea name="submitData" id="row2_1_2" rows="2"  /></td>
+                            </tr>
+                            <tr>
+                                <td >3、工具和材料：</td>
+                                <td ><textarea name="submitData" id="row2_1_3" rows="2"  /></td>
+                            </tr>
+                            <tr>
+                                <td >4、情感态度和价值观：</td>
+                                <td ><textarea name="submitData" id="row2_1_4" rows="2"  /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td ><textarea name="submitData" id="row2_2" rows="9"  /></td>
+                <td ><textarea name="submitData" id="row2_3" rows="9"  /></td>
+            </tr>
+            <tr>
+                <td>三、教学重点：</td>
+                <td ><textarea name="submitData" id="row3_1" rows="3"  /></td>
+                <td ><textarea name="submitData" id="row3_2" rows="3"  /></td>
+                <td ><textarea name="submitData" id="row3_3" rows="3"  /></td>
+            </tr>
+            <tr>
+                <td>四、教学难点：</td>
+                <td ><textarea name="submitData" id="row4_1" rows="3"  /></td>
+                <td ><textarea name="submitData" id="row4_2" rows="3"  /></td>
+                <td ><textarea name="submitData" id="row4_3" rows="3"  /></td>
+            </tr>
+            <tr>
+                <td>五、教学准备：</td>
+                <td>
+                    <table frame="void" border="1" style="width:100%;height:100%">
+                        <tbody>
+                            <tr>
+                                <td>教师准备：</td>
+                                <td><textarea name="submitData" id="row5_1_1" rows="2"  /></td>
+                            </tr>
+                            <tr>
+                                <td>学生准备：</td>
+                                <td><textarea name="submitData" id="row5_1_2" rows="2"  /></td>
+                            </tr>
+                            <tr>
+                                <td>工具材料选择要求：</td>
+                                <td><textarea name="submitData" id="row5_1_3" rows="2"  /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td><textarea name="submitData" id="row5_2" rows="7"  /></td>
+                <td><textarea name="submitData" id="row5_3" rows="7"  /></td>
+            </tr>
+            <tr>
+                <td>六、作业设计：</td>
+                <td ><textarea name="submitData" id="row6_1" rows="3"  /></td>
+                <td ><textarea name="submitData" id="row6_2" rows="3"  /></td>
+                <td ><textarea name="submitData" id="row6_3" rows="3"  /></td>
+            </tr>
+            <tr>
+                <td>七、教学方法：</td>
+                <td ><textarea name="submitData" id="row7_1" rows="3"  /></td>
+                <td ><textarea name="submitData" id="row7_2" rows="3"  /></td>
+                <td ><textarea name="submitData" id="row7_3" rows="3"  /></td>
+            </tr>
+            <tr>
+                <td>八、教学过程：</td>
+                <td colspan="3">
+                    <table frame="void" border="1" style="width:100%">
+                        <tbody>
+                            <tr>
+                                <td>采取策略：</td>
+                                <td colspan="3"><textarea name="submitData" id="row8_1" rows="3"  /></td>
+                            </tr>
+                            <tr>
+                                <td>（一）、导入</td>
+                                <td><textarea name="submitData" id="row8_2_1" rows="2"  /></td>
+                                <td><textarea name="submitData" id="row8_2_2" rows="2"  /></td>
+                                <td><textarea name="submitData" id="row8_2_3" rows="2"  /></td>
+                            </tr>
+                            <tr>
+                                <td>（二）、新授：</td>
+                                <td><textarea name="submitData" id="row8_3_1" rows="2"  /></td>
+                                <td><textarea name="submitData" id="row8_3_2" rows="2"  /></td>
+                                <td><textarea name="submitData" id="row8_3_3" rows="2"  /></td>
+                            </tr>
+                            <tr>
+                                <td>（三）、小结：</td>
+                                <td><textarea name="submitData" id="row8_4_1" rows="2"  /></td>
+                                <td><textarea name="submitData" id="row8_4_2" rows="2"  /></td>
+                                <td><textarea name="submitData" id="row8_4_2" rows="2"  /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>九、评价方式：</td>
+                <td colspan="3"><textarea name="submitData" id="remark" rows="9" ></textarea></td>
+            </tr>
+            <tr>
+                <td>十、教学反思：</td>
+                <td colspan="3"><textarea name="submitData" id="rethink" rows="9" ></textarea></td>
+            </tr>
+            <tr>
+                <td>教研组长签字：</td>
+                <td ><input name="submitData" id="TCTeachGroup" style="width:100%;border:0px" /></td>
+                <td>专业处签字：</td>
+                <td ><input name="submitData" id="TCArtDepartment" style="width:100%;border:0px" /></td>
+            </tr>
+            <tr class="noprint">
+                <td colspan="4" align="right">
+                    <button type="submit" class="btn btn-default" onclick="btnSave()" name="submit" style="display:none">保存</button>
+                    <button type="button" class="btn btn-default" style="margin:5px 5px;" onclick="btnBack()">返回</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="teachManage/teachCase.js"></script>
+<script src="./js/bootbox.min.js"></script>

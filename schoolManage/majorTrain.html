@@ -1,0 +1,148 @@
+﻿<link href="./js/chosen_v1.8.7/chosen.min.css" rel='stylesheet'/>
+<script src="./js/chosen_v1.8.7/chosen.jquery.js"></script>
+<script>
+        $(function(){
+            $('.chosen').chosen({
+                no_results_text: "没有找到结果！",//搜索无结果时显示的提示
+                search_contains: true,   //关键字模糊搜索。设置为true，只要选项包含搜索词就会显示；设置为false，则要求从选项开头开始匹配
+                allow_single_deselect: true, //单选下拉框是否允许取消选择。如果允许，选中选项会有一个x号可以删除选项
+                disable_search: false, //禁用搜索。设置为true，则无法搜索选项。
+                disable_search_threshold: 0, //当选项少等于于指定个数时禁用搜索。
+                inherit_select_classes: false, //是否继承原下拉框的样式类，此处设为不继承
+                placeholder_text_single: '请选择', //单选选择框的默认提示信息，当选项为空时会显示。如果原下拉框设置了data-placeholder，会覆盖这里的值。
+                width: '100%', //设置chosen下拉框的宽度。即使原下拉框本身设置了宽度，也会被width覆盖。
+                max_shown_results: 1000, //下拉框最大显示选项数量
+                display_disabled_options: false,
+                single_backstroke_delete: false, //false表示按两次删除键才能删除选项，true表示按一次删除键即可删除
+                case_sensitive_search: false, //搜索大小写敏感。此处设为不敏感
+                group_search: false, //选项组是否可搜。此处搜索不可搜
+                include_group_label_in_selected: true, //选中选项是否显示选项分组。false不显示，true显示。默认false。
+            })
+        });
+</script>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <!--<b>专业进程表</b>-->
+    </div>
+    <div class="panel-body">
+        <div style="margin-top: 10px; float: left">
+            <div class="form-inline">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="search" style="display:none" disabled="disabled" id="major_code"/>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" name="search" id="majorName">
+                        <option value="" selected>请选择</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" name="search" id="beginYear" style="width:100%">
+                        <option value="" selected="selected" disabled="disabled">入学年份</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-default" onclick="btnSearchOnClick()">
+                    查询
+                </button>
+                <button type="button" class="btn btn-default" onclick="btnResetOnClick()">
+                    重置
+                </button>
+                <button type="button" class="btn btn-default" onclick="btnInsertOnClick()">
+                    新增
+                </button>
+                <button type='button' class='btn btn-default ' onclick='btnBackOnClick()'>返回</button>
+            </div>
+        </div>
+        <table id="dataTable"></table>
+    </div>
+</div>
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="DetailModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="modal-title">
+                    课程编辑
+                </h3>
+            </div>
+            <div class="modal-body row">
+                <div class="col-xs-10 col-md-10">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="submitData" id="train_idx" style="display:none" />
+                            <input type="text" class="form-control" name="submitData" id="major_code" style="display:none" />
+                        </div>
+                        <div class="form-group">
+                            <label for="major_name" class="col-md-3 control-label">入学年份</label>
+                            <div class="col-md-9">
+                                <select class="form-control" name="submitData" id="train_grade">
+                                    <option value="" selected="selected" disabled="disabled">请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="major_name" class="col-md-3 control-label">课程</label>
+                            <div class="col-md-9">
+                                <select class="form-control chosen" name="submitData" id="subject_type"  >
+                                    <option value="" ></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="major_code" class="col-md-3 control-label">学期一</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="submitData" placeholder="第一学期课时" id="term1" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="major_code" class="col-md-3 control-label">学期二</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="submitData" placeholder="第二学期课时" id="term2" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="major_code" class="col-md-3 control-label">学期三</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="submitData" placeholder="第三学期课时" id="term3" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="major_code" class="col-md-3 control-label">学期四</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="submitData" placeholder="第四学期课时" id="term4" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="major_code" class="col-md-3 control-label">学期五</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="submitData" placeholder="第五学期课时" id="term5" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="major_code" class="col-md-3 control-label">学期六</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="submitData" placeholder="第六学期课时" id="term6" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnSave" onclick="btnSaveOnClick()">
+                    保存
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose">
+                    关闭
+                </button>
+            </div>
+        </div>
+        <!-- modal-content -->
+    </div>
+    <!-- modal-dialog -->
+</div>
+
+<script src="schoolManage/majorTrain.js"></script>
+<script src="./js/bootbox.min.js"></script>

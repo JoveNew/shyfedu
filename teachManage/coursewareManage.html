@@ -1,0 +1,56 @@
+﻿<link href="js/bootstrap-fileinput-master/css/fileinput.min.css" rel="stylesheet" />
+
+<div class="panel panel-default">
+    <div class="panel-heading"><b>课件列表</b></div>
+    <div class="panel-body">
+        <div style="float:left;margin-top:10px;">
+            <div class="form-inline" id="toolBar">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="search" placeholder="课件名" id="coursewareName">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="search" placeholder="教师名" id="teacherName">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="search" id="subjectIdx" style="display:none">
+                </div>
+            </div>
+        </div>
+        <table id="dataTable"></table>
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="DetailModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">课件详情</h3>
+            </div>
+            <div class="modal-body">
+                <!--添加隐藏的input框以便保存修改时可以获取idx的值-->
+                <input type="text" class="form-control" id="courseware_idx" style="display:none">
+                <input type="text" name="submitData" class="form-control" id="subject_idx" style="display:none">
+                <div class="row">
+                    <div class="form-group col-xs-12 col-md-12">
+                        <label for="courseware_name">课件名</label>
+                        <input type="text" name="submitData" class="form-control" id="courseware_name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-xs-12 col-md-12">
+                        <input type="file" name="txt_file" id="txt_file" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose">关闭</button>
+                    <button type="button" class="btn btn-primary" id="btnSave" onclick="btnSaveOnClick()">保存</button>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--本页面相关js文件-->
+<script src="js/bootstrap-fileinput-master/js/fileinput.min.js"></script>
+<script src="js/bootstrap-fileinput-master/js/locales/zh.js"></script>
+<script src="teachManage/coursewareManage.js"></script>

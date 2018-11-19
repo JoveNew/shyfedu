@@ -1,0 +1,120 @@
+﻿<link href="js/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+
+<div class="panel panel-default">
+    <div class="panel-heading">教室列表</div>
+    <div class="panel-body">
+        <div style="float:left;margin-top:10px;">
+            <div class="form-inline" id="toolBar">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="search" placeholder="教室编号">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="search" placeholder="教室名">
+                </div>
+                <div class="form-group">
+                    <select type="text" name="search" class="form-control" id="search_academy_code">
+                        <option value="" selected>所在校区</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select type="text" name="search" class="form-control" id="search_room_type">
+                        <option value="" selected>能否预约</option>
+                        <option value="0" >可预约</option>
+                        <option value="1" >不可预约</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <table id="dataTable"></table>
+    </div>
+</div>
+
+<!--详细信息模态框-->
+<div class="modal fade" tabindex="-1" role="dialog" id="detailModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">教室详情</h3>
+            </div>
+            <div class="modal-body">
+                <!--添加一个隐藏的input框以便保存修改时可以获取idx的值-->
+                <input type="text" class="form-control" id="room_idx" style="display:none">
+                <div class="form-group">
+                    <label for="room_code">教室编号</label>
+                    <input type="text" name="submitData" class="form-control" id="room_code">
+                </div>
+                <div class="form-group">
+                    <label for="room_name">教室名</label>
+                    <input type="text" name="submitData" class="form-control" id="room_name">
+                </div>
+                <div class="form-group">
+                    <label for="academy_code">所在校区</label>
+                    <select type="text" name="submitData" class="form-control" id="academy_code"></select>
+                </div>
+                <div class="form-group">
+                    <label for="room_type">教室状态</label>
+                    <select type="text" name="submitData" class="form-control" id="room_type">
+                        <option value="0">可预约</option>
+                        <option value="1">不可预约</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose">关闭</button>
+                    <button type="button" class="btn btn-primary" id="btnSave" onclick="btnSaveOnClick()">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--教室预约模态框-->
+<div class="modal fade" tabindex="-1" role="dialog" id="bookModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">教室预约</h3>
+            </div>
+            <div class="modal-body">
+                <input type="text" class="form-control" id="book_room_idx" style="display:none">
+                <div class="form-group">
+                    <label for="room_code">教室编号</label>
+                    <input type="text" name="bookData" class="form-control" id="book_room_code" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="academy_code">所在校区</label>
+                    <select type="text" name="bookData" class="form-control" id="book_academy_code" disabled></select>
+                </div>
+                <div class="form-group">
+                    <label for="academy_code">预约日期</label>
+                    <input type="text" name="bookData" class="form-control" id="book_day">
+                </div>
+                <div class="form-group">
+                    <label for="book_time">预约时间（第几节课）</label>
+                    <div class="row">
+                        <div class="col-xs-5 col-md-5">
+                            <select type="text" name="bookData" class="form-control" id="book_start_time" onchange="endTimeChange(this.value)"></select>
+                        </div>
+                        <div class="col-xs-2 col-md-2" style="text-align:center">至</div>
+                        <div class="col-xs-5 col-md-5">
+                            <select type="text" name="bookData" class="form-control" id="book_end_time"></select>
+                        </div>
+                    </div>                 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" >关闭</button>
+                    <button type="button" class="btn btn-primary" id="btnBook" onclick="btnBookOnClick()">预约</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--本页面相关js文件-->
+<script src="js/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.min.js"></script>
+<script src="js/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="thingMANAGE/roomManage.js"></script>
+<script src="js/bootbox.min.js"></script>
+

@@ -1,0 +1,32 @@
+﻿<div class="panel panel-default">
+    <div class="panel-heading">可预约教室列表</div>
+    <div class="panel-body">
+        <div style="float:left;margin-top:10px;">
+            <div class="form-inline">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="search" placeholder="教室编号">
+                </div>
+                <div class="form-group">
+                    <select type="text" name="search" class="form-control" id="search_academy_code">
+                        <option value="" selected>所在校区</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select type="text" name="search" class="form-control">
+                        <option value="" selected>审核状态</option>
+                        <option value="0">待审核</option>
+                        <option value="1">已通过</option>
+                        <option value="2">已拒绝</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-default" onclick="btnSearchOnClick()">查询</button>
+                <button type="button" class="btn btn-default" onclick="btnResetOnClick()">重置</button>
+            </div>
+        </div>
+        <table id="dataTable"></table>
+    </div>
+</div>
+
+<!--本页面相关js文件-->
+<script src="thingMANAGE/roomBookManage.js"></script>
+<script src="js/bootbox.min.js"></script>

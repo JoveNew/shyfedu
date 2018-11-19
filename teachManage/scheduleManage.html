@@ -1,0 +1,133 @@
+<style type="text/css" media="print">
+    #noprint {
+        display: none
+    }
+</style>
+<style type="text/css">
+
+    /*th {
+        text-align: center
+    }
+    td input {
+        width: 100%;
+        height: 100%;
+        border: 0px
+    }
+    td textarea {
+        width: 100%;
+        height: 100%;
+        border-style: none;
+        resize: none
+    }*/
+    .redbor {
+        border: 1px dashed #F00;
+        width: 100%;
+        height: 100%
+    }
+    .bluebor {
+        border: 1px dashed #0026ff;
+        width: 100%;
+        height: 100%
+    }
+    .yellowbor {
+        border: 1px dashed #ffd800;
+        width: 100%;
+        height: 100%
+    }
+    /*span {
+        display: block
+    }*/
+    /*css注释说明：让span形成块*/
+</style>
+<link href="./js/chosen_v1.8.7/chosen.min.css" rel='stylesheet' />
+<script src="./js/chosen_v1.8.7/chosen.jquery.js"></script>
+<script>
+    $(function () {
+        $('.chosen').chosen({
+            no_results_text: "没有找到结果！",//搜索无结果时显示的提示
+            search_contains: true,   //关键字模糊搜索。设置为true，只要选项包含搜索词就会显示；设置为false，则要求从选项开头开始匹配
+            allow_single_deselect: true, //单选下拉框是否允许取消选择。如果允许，选中选项会有一个x号可以删除选项
+            disable_search: false, //禁用搜索。设置为true，则无法搜索选项。
+            disable_search_threshold: 0, //当选项少等于于指定个数时禁用搜索。
+            inherit_select_classes: false, //是否继承原下拉框的样式类，此处设为不继承
+            placeholder_text_single: '请选择', //单选选择框的默认提示信息，当选项为空时会显示。如果原下拉框设置了data-placeholder，会覆盖这里的值。
+            width: '100%', //设置chosen下拉框的宽度。即使原下拉框本身设置了宽度，也会被width覆盖。
+            max_shown_results: 1000, //下拉框最大显示选项数量
+            display_disabled_options: false,
+            single_backstroke_delete: false, //false表示按两次删除键才能删除选项，true表示按一次删除键即可删除
+            case_sensitive_search: false, //搜索大小写敏感。此处设为不敏感
+            group_search: false, //选项组是否可搜。此处搜索不可搜
+            include_group_label_in_selected: true, //选中选项是否显示选项分组。false不显示，true显示。默认false。
+        })
+    });
+</script>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <b>课程表</b>
+    </div>
+    <div class="panel-body">
+        <div class="form-inline" id="toolBar">
+            <div class="form-group">
+                <select disabled="disabled" type="text" class="form-control" id="yearSelect" onchange="yearChange()" readonly="readonly">
+                    <option value="" selected="selected">--学期选择--</option>
+                </select>
+                <div class="form-group">
+                    <div class="form-group" style="border:1px solid #D0D0D0  ;padding:3px;margin-left:2px">
+                        <p class="form-group" style="margin-left:2px;margin-top:0;font-size:16px">快速操作</p>
+                        <label class="btn blue-soft active">
+                            <input type="radio" value="none" class="toggle" name="fun">
+                            无
+                        </label>
+                        <label class="btn blue-soft">
+                            <input type="radio" value="delete" class="toggle" name="fun">
+                            删除
+                        </label>
+                        <label class="btn blue-soft">
+                            <input type="radio" value="move" class="toggle" name="fun">
+                            选中移动
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div style="display:inline-block;float:right"><button type="button" class="btn btn-default" onclick="btnBackOnClick()">返回</button></div>
+            <div class="form-group col-md-12" style="margin-top:5px">
+                <div class="form-group col-md-3 col-xs-3">
+                    <div class="form-group col-md-12">
+                        <select type="text" class="chosen form-control" id="classSelect" onchange="classChange()">
+                            <option value="" selected="selected" name="-">---班级选择---</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group col-md-3 col-xs-3">
+                    <div class="form-group col-md-12">
+                        <select type="text" class="chosen form-control" id="subjectTypeSelect" onchange="subjectTypeChange()">
+                            <option value="" selected="selected" name="-">---课程选择---</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group col-md-3 col-xs-3">
+                    <div class="form-group col-md-12">
+                        <select type="text" class="chosen form-control" id="teacherSelect" onchange="teacherChange()">
+                            <option value="" selected="selected" name="-">---教师选择---</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group col-md-3 col-xs-3">
+                    <div class="form-group col-md-12">
+                        <select type="text" class="chosen form-control" id="roomSelect" onchange="roomChange()">
+                            <option value="" selected="selected" name="-">---教室选择---</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-md-12">
+                    <div id="ScheduleTable" style="width:100%;table-layout:fixed" align="center"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="teachManage/scheduleManage.js"></script>

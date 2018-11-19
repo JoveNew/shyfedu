@@ -1,0 +1,160 @@
+﻿<!--
+作者：zhangyu
+创建时间：2018.8.6
+文档说明：
+1.页面框架，包括标题侧边菜单、页脚标注信息。
+2.菜单对应的页面内容，根据菜单选择，动态加载。
+
+作者：lixiaowen
+创建时间：2018.8.10
+文档说明：
+为了测试后台数据传送，注释了表格框架，增加一个文本框
+
+作者：lixiaowen
+创建时间：2018.8.20
+文档说明：
+1.为编辑键和撤销删除键增加模态框
+
+作者：lixiaowen
+创建时间：2018.8.29
+文档说明：
+1.重写搜索与重置功能
+2.增加新增功能
+
+作者：lixiaowen
+创建时间：2018.9.4
+文档说明：
+1.将性别搜索文本框改为下拉框显示
+
+作者：lixiaowen创建日期：2018.9.6文档说明：增加照片上传功能
+
+-->
+<link href="js/bootstrap-table-master/src/bootstrap-table.css" rel="stylesheet" type="text/css">
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <b>教师列表</b></div>
+    <div class="panel-body">
+        <div style="margin-top: 10px; float: left">
+            <div class="form-inline">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="search" placeholder="工号" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="search" placeholder="姓名" />
+                </div>
+                <div class="form-group">
+                    <select id="selectType" class="form-control"  name="search">
+                        <option value="" selected="selected" >性别</option>
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select id="academySearch" class="form-control" name="search">
+                        <option value="" selected="selected" >校区</option>
+                    </select>
+                </div>
+                <!--<div class="form-group">
+                    <select id="majorSearch" class="form-control" name="search">
+                        <option value="" selected="selected" disabled="disabled">专业</option>
+                    </select>
+                </div>-->
+                <button type="submit" class="btn btn-default" onclick="btnSearchOnClick()">
+                    查询
+                </button>
+                <button type="button" class="btn btn-default" onclick="btnResetOnClick()">
+                    重置
+                </button>
+                <button type="button" class="btn btn-default" onclick="btnInsertOnClick()">
+                    新增
+                </button>
+            </div>
+        </div>
+        <table id="dataTable">
+        </table>
+    </div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" id="DetailModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="modal-title">
+                    教师详情</h3>
+            </div>
+            <div class="modal-body row">
+                <input type="text" class="form-control" id="teacher_idx" style="display: none" />
+                <div class="col-xs-5 col-md-5">
+                    <div class="form-group col-xs-12 col-md-12">
+                        <canvas id="image_can" style="width:200px; height:260px; border:ridge"></canvas>
+                        <input type="file" id="teacher_img" style="display:none" onchange="handlePreview(this,IMG_ARRAY,'image_can')" />
+                        <h4 id="imgName" style="text-align:center"></h4>
+                    </div>
+                </div>
+                <div class="col-xs-7 col-md-7">
+                    <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label for="teacher_code" class="col-md-3 control-label">工号</label>
+                        <div class="col-md-9">
+                            <input type="text" name="submitData" class="form-control" id="teacher_code" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="teacher_name" class="col-md-3 control-label">姓名</label>
+                        <div class="col-md-9">
+                            <input type="text" name="submitData" class="form-control" id="teacher_name" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="teacher_sex" class="col-md-3 control-label">性别</label>
+                        <div class="col-md-9">
+                            <select class="form-control" name="submitData" id="teacher_sex">
+                                <option value=""  >请选择</option>
+                                <option value="男">男</option>
+                                <option value="女">女</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="major_code" class="col-md-3 control-label">专业</label>
+                        <div class="col-md-9">
+                            <select class="form-control" name="submitData" id="major_code">
+                                <option value="" selected=selected >请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="academy_code" class="col-md-3 control-label">校区</label>
+                        <div class="col-md-9">
+                            <select class="form-control" name="submitData" id="academy_code">
+                                <option value="" selected=selected >请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnSave" onclick="btnSaveOnClick()">
+                    保存</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose">
+                    关闭</button>
+            </div>
+        </div>
+        <!-- modal-content -->
+    </div>
+    <!-- modal-dialog -->
+</div>
+<!-- modal -->
+<!--以下为js脚本-->
+<!--<script src="js/bootstrap-table-master/src/bootstrap-table.js"></script>
+<!--这个汉化包可选，但是必须在bootstrap-table.js后面 -->
+<!--<script src="js/bootstrap-table-master/src/locale/bootstrap-table-zh-CN.js"></script>-->
+<!--以下为bootstrap table控件配置文件，需在初始化js文件之前引入-->
+<script language="javascript" src='js/tableControl.js'></script>
+<!--本页面相关js文件-->
+<script src="schoolManage/teacherManage.js"></script>
+<script src="js/exif-js-master/exif.js"></script>
+<script src="./js/bootbox.min.js"></script>

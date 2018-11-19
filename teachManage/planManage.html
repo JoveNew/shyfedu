@@ -1,0 +1,103 @@
+﻿<link href="js/bootstrap-fileinput-master/css/fileinput.min.css" rel="stylesheet" />
+
+<div class="panel panel-default">
+    <div class="panel-heading">教案列表</div>
+    <div class="panel-body">
+        <div style="float:left;margin-top:10px;">
+            <div class="form-inline" id="tool">
+                <div class="form-group">
+                    <input type="text" class="form-control visible" name="search" placeholder="名称">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control subject_idx" name="search" placeholder="课程名" style="display:none">
+                </div>
+            </div>
+        </div>
+        <table id="dataTable"></table>
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="DetailModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">教案详情</h3>
+            </div>
+            <div class="modal-body">
+                <!--添加隐藏的input框以便保存修改时可以获取idx的值-->
+                <input type="text" class="form-control" id="planIdx" style="display:none">
+                <div class="row">
+                    <div class="form-group col-xs-6 col-md-6">
+                        <label for="plan_name">教案名称</label>
+                        <input type="text" name="submitData" class="form-control" id="plan_name">
+                    </div>
+                    <input type="text" name="submitData" class="form-control subject_idx" id="subject_idx" style="display:none">
+                    <input type="text" name="submitData" class="form-control teacher_idx" id="teacher_idx" style="display:none">
+                    <input type="text" name="submitData" class="form-control account_idx" id="account_idx" style="display:none">
+                    <div class="form-group col-xs-6 col-md-6">
+                        <label for="plan_remark">评价</label>
+                        <input type="text" name="submitData" class="form-control" id="plan_remark">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-xs-12 col-md-12">
+                        <input type="file" name="txt_file" id="plan_file" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose">关闭</button>
+                    <button type="button" class="btn btn-primary" id="btnSave" onclick="btnSaveOnClick()">保存</button>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" tabindex="-1" role="dialog" id="planCopy">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">复制教案</h3>
+            </div>
+            <div class="modal-body">
+                <!--添加隐藏的input框以便保存修改时可以获取idx的值-->
+                <input type="text" name="planCopy" id="plan_idx" style="display:none">
+                <input type="text" name="planCopy" id="subject_idx" style="display:none">
+                <div class="form-inline">
+                    <label for="plan_week">将此文件复制到第</label>
+                    <select id="plan_week" name="planCopy">
+                        <!--<option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>-->
+                    </select>
+                    <label for="plan_week">周</label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose">关闭</button>
+                    <button type="button" class="btn btn-primary" id="btnSave" onclick="btnSave()">保存</button>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--本页面相关js文件-->
+<script src="js/bootstrap-fileinput-master/js/fileinput.min.js"></script>
+<script src="js/bootstrap-fileinput-master/js/locales/zh.js"></script>
+<script src="teachManage/planManage.js"></script>

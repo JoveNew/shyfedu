@@ -1,0 +1,84 @@
+<style type="text/css" media="print">
+    #noprint{
+        display:none
+    }
+</style>
+<style type="text/css">
+    .form-inline input {
+        text-align: center;
+        width: 100px;
+        border-top-style: none;
+        border-right-style: none;
+        border-left-style: none;
+        border-bottom-style: solid
+    }
+    th {
+        text-align: center
+    }
+    td input {
+        width: 100%;
+        height: 100%;
+        border: 0px;
+        text-align:center
+    }
+    td textarea {
+        width: 100%;
+        height: 100%;
+        border-style: none;
+        resize:none
+    }
+</style>
+
+<div id="head" style="text-align:center">
+    <h4 id="title"></h4>
+    <p>教学内容和进度安排</p>
+</div>
+
+<div style="margin-bottom:10px;">
+    <div class="form-inline" style="text-align:center">
+        <label for="major_name">专业：</label>
+        <input name="submitData" id="major_name" style="width:180px"/>
+        <label for="grade">年级：</label>
+        <input name="submitData" id="grade" />
+        <label for="class_name">班级：</label>
+        <input name="submitData" id="class_name"  style="width:180px"/>
+        <label for="account_name">教师：</label>
+        <input name="submitData" id="account_name" style="margin-right:0px"/>
+    </div>
+    <div class="form-inline" style="text-align:center">
+        <label for="subject_name">课程：</label>
+        <input name="submitData" id="subject_name" x/>
+        <label for="totalLesson">学期总课时：</label>
+        <input name="submitData" id="totalLesson" />
+        <label for="data">选用教材：</label>
+        <input name="submitData" id="data" style="margin-right:0px" />
+    </div>
+</div>
+
+<div id="table">
+    <table border="1" style="width:80%;text-align:center;table-layout:fixed;margin:auto">
+        <thead>
+            <tr>
+                <th style="width:6%">顺序</th>
+                <th style="width:6%">周次</th>
+                <th style="width:28%">教学内容</th>
+                <th style="width:6%">课时</th>
+                <th style="width:28%">教学重点</th>
+                <th style="width:10%">作业布置</th>
+                <th style="width:8%">备注</th>
+            </tr>
+        </thead>
+        <tbody id="insert"></tbody>
+        <tfoot id="noprint">
+            <tr>
+                <td colspan="7" align="right">
+                    <button type="submit" class="btn btn-default" onclick="btnSave()" name="submit">保存</button>
+                    <button type="button" class="btn btn-default" style="margin:5px 5px;" onclick="btnBack()" >返回</button>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<p style="font-size:12px"><b>注：本学期总课时数=专业教学实数16周+专业考试2周*课程周课时数</b></p>
+
+<script src="teachManage/planOfContentAndSchedule.js"></script>
